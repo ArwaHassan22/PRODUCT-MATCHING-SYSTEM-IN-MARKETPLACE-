@@ -25,27 +25,47 @@ To run this project, you need the following Python packages:
 You can install the required packages using pip:  
 ```bash  
 pip install numpy pandas matplotlib seaborn rapidfuzz openpyxl joblib scikit-learn
-##Dataset
+```
+
+## Dataset
 The project requires Excel sheets:
 
 Dataset: Contains seller product names, associated information, and actual SKUs.
+
 Master File: Contains a list of standardized product names and their corresponding SKU values.
 
-##Usage
-Load the datasets using the provided code snippet.
-Clean and preprocess the text data.
-Extract features from the product names.
-Use the find_best_match function to match seller products with master products.
-Analyze the results, including expected SKUs, and export the matched products to an Excel file.
+## Usage
+- Load the datasets using the provided code snippet.
+- Clean and preprocess the text data.
+- Extract features from the product names.
+- Use the find_best_match function to match seller products with master products.
+- Analyze the results, including expected SKUs, and export the matched products to an Excel file.
 
-##Output
+Example:
+```bash
+import pandas as pd  
+.
+.
+.
+# Load datasets  
+seller_sheet = pd.read_excel('Product Matching Dataset.xlsx', sheet_name='Dataset')  
+master_sheet = pd.read_excel('Product Matching Dataset.xlsx', sheet_name='Master File')  
+
+# Clean and process data (as shown in the provided code)  
+# ...  
+
+# Export results  
+seller_sheet.to_excel('matched_products.xlsx', index=False)  
+```
+## Output
 The output of the program will be an Excel file named matched_products.xlsx containing:
 
-Matched products
-Similarity scores
-Confidence levels
-Expected SKUs
+- Matched products
+- Similarity scores
+- Confidence levels
+- Expected SKUs
 
-##Accuracy
-The system calculates the accuracy of the matching process by comparing the expected SKU with the actual SKU from the seller sheet. The accuracy percentage is printed to the console, giving insights into the performance of the matching algorithm.
+## Accuracy
+The system calculates the accuracy of the matching process by comparing the expected SKU with the actual SKU from the seller sheet. 
+The accuracy percentage is printed to the console, giving insights into the performance of the matching algorithm.
 
